@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyFrames and Animation</title>
+    <style>
+        .container{
+            display: flex;
+            background-color: bisque;
+        }
+        .box{
+            background-color: aqua;
+            width: 150px;
+            height: 150px;
+            position: relative;
+            animation-name: vandu;
+            animation-name: vandu1;
+            animation-duration: 10s;
+            animation-iteration-count: 1;
+           /* animation-fill-mode: alternate;
+             animation-timing-functin:ease-in-out;
+            animation-delay: 3s;
+            animation-direction: reverse;*/
+        }
+        @keyframes vandu1{
+            0%{
+                top: 0px;
+                left:0px;
+            }
+
+            25%{
+                top: 250px;
+                left: 0px;
+
+            }
+            50%{
+                top: 250px;
+                left: 250px;
+            }
+            100%{
+                top: 0px;
+                left: 250px;
+            }
+        }
+        @keyframes vandu{
+            from{
+                width: 200px;
+            }
+            to{
+            width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            This is the first box
+        </div>
+    </div>
+    
+</body>
+</html>
