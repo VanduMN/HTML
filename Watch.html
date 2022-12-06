@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html,body{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            place-items: center;
+            justify-content: center ;
+            background: rgb(29, 27, 27);
+           /* background: url('https://images.unsplash.com/photo-1499002238440-d264edd596ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+            overflow: hidden;
+            background-size: cover;
+            background-repeat: repeat;*/
+        }
+        .wrapper{
+             height: 100px;
+             width: 360px;
+             background: linear-gradient(135deg, #14ffe9,#ffeb3b, #ff00e0);
+             border-radius: 10px;
+             animation: animate 1.5s linear infinite;
+        }
+        .wrapper .display{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            background: #c77b7b;
+            height: 85px;
+            width: 345px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .wrapper .display #time{
+            line-height: 85px;
+            color: white;
+            font-size: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #63b1a9,#24231e, #ac3f9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate 1.5s linear infinite;
+        }
+        @keyframes animate{
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="display">
+           
+            <div id="time">12:00:00 PM</div>
+        </div>
+        <span></span>
+        <span></span>
+    </div>
+    <script>
+        setInterval(()=>{
+        const time = document.querySelector("#time");
+        let date = new Date();
+        let hour =  date.getHours();
+        let minutes=  date.getMinutes();
+        let seconds =  date.getSeconds();
+        let day_night ="AM";
+        if(hour > 12){
+            day_night ="PM";
+            hour = hour - 12;
+        }
+        if(hour >12){
+            hour = hour - 12;
+        }
+        time.textContent = hour + ":" + minutes + ":" + seconds +":" + day_night ;
+    })
+    </script>
+</body>
+</html>
